@@ -1,0 +1,23 @@
+p{
+	text-align: justify;
+}
+
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+#page-content-container{
+	min-height: 600px;
+}
+
+@media only screen and (min-width: 993px) {
+	nav a.button-collapse {
+	    display: block;
+	}
+}
+
+nav .brand-logo {
+	left: 40%;
+	float: left;
+	font-size: 1rem;
+}

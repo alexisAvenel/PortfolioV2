@@ -1,0 +1,19 @@
+p{
+	text-align: justify;
+}
+
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+#nav-logo{
+	width: 25%;
+}
+
+nav ul li:hover a {
+    color: #03a9f4;
+}
+
+#page-content-container{
+	min-height: 600px;
+}
