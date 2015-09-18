@@ -1,10 +1,12 @@
 <?php
 namespace App\Controller;
 
+use App\Controller\AppController;
 use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
 use Cake\Event\Event;
+use Cake\Utility\Inflector;
 
 /**
  * Users Controller

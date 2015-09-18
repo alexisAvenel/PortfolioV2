@@ -43,7 +43,7 @@ class AppController extends Controller
                 ],
                'loginRedirect' => [
                     'controller' => 'Users',
-                    'action' => 'home'
+                    'action' => 'login'
                 ],
                 'authError' => 'Vous croyez vraiment que vous pouvez faire cela?'
             ]
@@ -53,8 +53,8 @@ class AppController extends Controller
     public function beforeFilter(Event $event){
         $this->Auth->allow(['view', 'index', 'home']);
         $user = $this->Auth->user();
+        $url = explode('/',$this->request->url);
         if($user):
-            $url = explode('/',$this->request->url);
             if($url[0] == 'adminavenel32')
                 $this->layout = 'admin';
             else
@@ -62,12 +62,13 @@ class AppController extends Controller
         else:
             $this->layout = 'default';
         endif;
+
     }
 
     public function isAuthorized($user)
     {
         // Admin peuvent accéder à chaque action
-        if (isset($user['role']) && $user['role'] === 'admin') {
+        if (isset($user['role']) && $user['role'] == 'admin') {
             return true;
         }
 

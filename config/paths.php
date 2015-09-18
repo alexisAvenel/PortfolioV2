@@ -88,3 +88,8 @@ define('CAKE', CORE_PATH . 'src' . DS);
  * URL path of the application.
  */
 define('BASE_URL', "http://localhost/portfolio-v2/PortfolioV2/");
+
+/**
+ * Admin prefix name.
+ */
+define('ADMIN_PREFIX', 'adminavenel32');

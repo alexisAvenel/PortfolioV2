@@ -1,3 +1,131 @@
+body{
+	color: #263238;
+}
+
+a {
+	color: #26a69a;
+}
+
+header, main, footer {
+	padding-left: 240px;
+}
+
+table {
+	background: white;
+}
+
+td, th {
+	text-align: center;
+}
+
+.actions a {
+	padding: 0 5px;
+}
+
+@media only screen and (max-width : 992px) {
+	header, main, footer {
+		padding-left: 0;
+	}
+	.page-title {
+		padding-left: 50px;
+	}
+}
+
+@media only screen and (min-width: 993px) {
+	nav a.button-collapse {
+	    display: block;
+	}
+}
+
+ul.side-nav.fixed {
+    overflow: hidden;
+}
+
+ul.side-nav.fixed:hover {
+    overflow-y: auto; 
+}
+
+ul.side-nav.fixed li.logo {
+    text-align: center;
+    padding-bottom: 25px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ffffff;
+}
+
+#logo-container {
+    height: 57px;
+    margin-bottom: 32px;
+}
+
+#front-page-logo {
+    display: block;
+    margin: auto;
+    height: 100%;
+    pointer-events: none;
+    border: 2px ridge #fff;
+}
+
+ul.side-nav.fixed li {
+    line-height: 44px;
+}
+
+ul.side-nav.fixed li a {
+    font-size: 13px;
+    line-height: 44px;
+    height: 44px;
+}
+
+ul.side-nav.fixed ul.collapsible-accordion {
+    background-color: #cfd8dc;
+}
+
+.side-nav.fixed a{
+	color: #fff;
+}
+
+.side-nav.fixed li:hover a{
+	color: #263238;
+}
+
+.side-nav li.logo:hover, .side-nav li.logo.active {
+    background-color: transparent;
+}
+
+.side-nav li.logo:hover a, .side-nav li.logo.active a {
+	color: #fff;
+}
+
+.side-nav.fixed .website a {
+	color: #009688;
+}
+
+.side-nav.fixed li.website:hover, .side-nav.fixed li.website.active {
+	background: #009688;
+}
+
+.side-nav.fixed li.website:hover a, .side-nav.fixed li.website.active a {
+	color: #ffffff;
+}
+
+.side-nav.fixed .disconnect a {
+	color: #f44336;
+}
+
+.side-nav.fixed li.disconnect:hover, .side-nav.fixed li.disconnect.active {
+	background: #f44336;
+}
+
+.side-nav.fixed li.disconnect:hover a, .side-nav.fixed li.disconnect.active a {
+	color: #ffffff;
+}
+
+footer.page-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    background-color: #ee6e73;
+    display: none;
+}
+
 p{
 	text-align: justify;
 }
@@ -10,14 +138,36 @@ p{
 	min-height: 600px;
 }
 
-@media only screen and (min-width: 993px) {
-	nav a.button-collapse {
-	    display: block;
-	}
-}
-
 nav .brand-logo {
 	left: 40%;
 	float: left;
 	font-size: 1rem;
+}
+
+.inline{
+	display: inline;
+}
+
+.filter{
+	opacity: 0.8;
+}
+
+i.material-icons {
+    vertical-align: bottom;
+}
+
+#slide-out li a{
+	color: #ffffff;
+}
+
+#slide-out li a:hover, #slide-out li a:active, #slide-out li a:focus{
+	color: #263238;
+}
+
+.admin_dash .icon{
+	color: #263238;
+}
+
+.admin_dash a.collection-item{
+	color: #263238;
 }

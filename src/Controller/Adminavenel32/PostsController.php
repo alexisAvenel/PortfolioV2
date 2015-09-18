@@ -85,7 +85,7 @@ class PostsController extends AppController
         $users = $this->Posts->Users->find('list', ['limit' => 200]);
         $postCategories = $this->Posts->PostCategories->find('list', ['limit' => 200]);
         $this->set(compact('post', 'users', 'postCategories'));
-        $this->set('_serialize', ['post']);
+        $this->set('_serialize', ['post, users, postCategories']);
     }
 
     /**

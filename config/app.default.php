@@ -220,7 +220,7 @@ return [
             'password' => 'secret',
             'database' => 'my_app',
             'encoding' => 'utf8',
-            'timezone' => 'UTC',
+            'timezone' => 'Europe/Paris',
             'cacheMetadata' => true,
 
             /**

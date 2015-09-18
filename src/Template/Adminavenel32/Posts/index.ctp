@@ -7,15 +7,15 @@
 
     <div class="row">
         <div class="col s12">
-            <table cellpadding="0" cellspacing="0">
+            <table cellpadding="0" cellspacing="0" class="responsive-table striped">
                 <thead>
                     <tr>
-                        <th><?= $this->Paginator->sort('id') ?></th>
-                        <th><?= $this->Paginator->sort('title') ?></th>
-                        <th><?= $this->Paginator->sort('author_id') ?></th>
-                        <th><?= $this->Paginator->sort('category_id') ?></th>
-                        <th><?= $this->Paginator->sort('created') ?></th>
-                        <th><?= $this->Paginator->sort('modified') ?></th>
+                        <th><?= $this->Paginator->sort('Id') ?></th>
+                        <th><?= $this->Paginator->sort('Titre') ?></th>
+                        <th><?= $this->Paginator->sort('Auteur') ?></th>
+                        <th><?= $this->Paginator->sort('Catégorie') ?></th>
+                        <th><?= $this->Paginator->sort('Créé le') ?></th>
+                        <th><?= $this->Paginator->sort('Modifié le') ?></th>
                         <th class="actions"><?= __('Actions') ?></th>
                     </tr>
                 </thead>
@@ -45,9 +45,9 @@
         <div class="col s3 offset-s4">
             <div class="paginator">
                 <ul class="pagination">
-                    <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                    <?= $this->Paginator->prev('< ' . __('Prev')) ?>
                     <?= $this->Paginator->numbers() ?>
-                    <?= $this->Paginator->next(__('next') . ' >') ?>
+                    <?= $this->Paginator->next(__('Next') . ' >') ?>
                 </ul>
             </div>
         </div>

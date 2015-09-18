@@ -1,30 +1,52 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $post->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $post->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Posts'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Post Categories'), ['controller' => 'PostCategories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Post Category'), ['controller' => 'PostCategories', 'action' => 'add']) ?></li>
-    </ul>
-</div>
-<div class="posts form large-10 medium-9 columns">
-    <?= $this->Form->create($post) ?>
-    <fieldset>
-        <legend><?= __('Edit Post') ?></legend>
-        <?php
-            echo $this->Form->input('title');
-            echo $this->Form->input('body');
-            echo $this->Form->input('author_id', ['options' => $users]);
-            echo $this->Form->input('category_id', ['options' => $postCategories]);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<div class="container">
+
+    <div class="section">
+        <h1>Modifier un article</h1>
+    </div>
+
+    <div class="row">
+        <?= $this->Form->create($post, ['class'=>"col s12", 'autocomplete' => 'off']) ?>
+        <div class="row">
+            <div class="input-field col s12">
+                <?php echo $this->Form->input('title'); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="body" class="materialize-textarea" name="body"><?php echo $post->body; ?></textarea>
+                <label for="body">Corps de l'article</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select name="author_id">
+                    <option value="" disabled selected>Choix de l'utilisateur</option>
+                    <?php foreach($users as $k => $user): ?>
+                        <?php $user_values = explode(';', $user); ?>
+                        <option value="<?= $user_values[0]; ?>" <?php if($user_values[0] == $post->author_id) echo 'selected'; ?>><?= $user_values[1].' '.$user_values[2]; ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <label>Utilisateurs</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select name="category_id">
+                    <option value="" disabled selected>Choix de la catégorie</option>
+                    <?php foreach($postCategories as $k => $postCategory): ?>
+                        <option value="<?= $k; ?>" <?php if($k == $post->category_id) echo 'selected'; ?>><?= $postCategory; ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <label>Catégorie</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s4 offset-s4">
+                <button class="waves-effect waves-light btn-large light-green" type="submit">Modifier
+                    <i class="material-icons right">send</i>
+                </button>
+                <?= $this->Form->end() ?>
+            </div>
+        </div>
+    </div>
 </div>

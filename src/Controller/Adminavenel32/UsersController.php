@@ -60,31 +60,33 @@ class UsersController extends AppController
         $test = $last_posts->contain(['Users', 'PostCategories']);
 
         $this->set('last_posts', $test);
-
-        if (!$this->Auth->User('id') && $this->Auth->User('role') != 'admin') {
-            $this->redirect(['controller' => 'Users', 'action' => 'login']);
-        }
     }
 
     public function login()
     {
-        $page = "Connexion";
-        $title = "Alexis Avenel - Connexion à l'administration";
-        $this->set('page', $page);
-        $this->set('title_for_layout', $title);
+        if ($this->Auth->User('id') && $this->Auth->User('role') == 'admin') {
+            $this->redirect('/adminavenel32/home');
+        }
+        else
+        {
+            $page = "Connexion";
+            $title = "Alexis Avenel - Connexion à l'administration";
+            $this->set('page', $page);
+            $this->set('title_for_layout', $title);
 
-        if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
-            } else {
-                $this->Flash->error(
-                    __("Nom d'utilisateur ou mot de passe incorrect"),
-                    'default',
-                    [],
-                    'auth'
-                );
+            if ($this->request->is('post')) {
+                $user = $this->Auth->identify();
+                if ($user) {
+                    $this->Auth->setUser($user);
+                    return $this->redirect($this->Auth->redirectUrl());
+                } else {
+                    $this->Flash->error(
+                        __("Nom d'utilisateur ou mot de passe incorrect"),
+                        'default',
+                        [],
+                        'auth'
+                    );
+                }
             }
         }
     }

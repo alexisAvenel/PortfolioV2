@@ -1,42 +1,30 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit Post'), ['action' => 'edit', $post->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Post'), ['action' => 'delete', $post->id], ['confirm' => __('Are you sure you want to delete # {0}?', $post->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Posts'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Post'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Post Categories'), ['controller' => 'PostCategories', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Post Category'), ['controller' => 'PostCategories', 'action' => 'add']) ?> </li>
-    </ul>
-</div>
-<div class="posts view large-10 medium-9 columns">
-    <h2><?= h($post->title) ?></h2>
-    <div class="row">
-        <div class="large-5 columns strings">
-            <h6 class="subheader"><?= __('Title') ?></h6>
-            <p><?= h($post->title) ?></p>
-            <h6 class="subheader"><?= __('User') ?></h6>
-            <p><?= $post->has('user') ? $this->Html->link($post->user->id, ['controller' => 'Users', 'action' => 'view', $post->user->id]) : '' ?></p>
-            <h6 class="subheader"><?= __('Post Category') ?></h6>
-            <p><?= $post->has('post_category') ? $this->Html->link($post->post_category->name, ['controller' => 'PostCategories', 'action' => 'view', $post->post_category->id]) : '' ?></p>
-        </div>
-        <div class="large-2 columns numbers end">
-            <h6 class="subheader"><?= __('Id') ?></h6>
-            <p><?= $this->Number->format($post->id) ?></p>
-        </div>
-        <div class="large-2 columns dates end">
-            <h6 class="subheader"><?= __('Created') ?></h6>
-            <p><?= h($post->created) ?></p>
-            <h6 class="subheader"><?= __('Modified') ?></h6>
-            <p><?= h($post->modified) ?></p>
-        </div>
+<div class="container">
+    <div class="section">
+        <h1>Informations d'un article</h1>
     </div>
-    <div class="row texts">
-        <div class="columns large-9">
-            <h6 class="subheader"><?= __('Body') ?></h6>
-            <?= $this->Text->autoParagraph(h($post->body)) ?>
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel grey lighten-5 z-depth-1">
+                <div class="row valign-wrapper">
+                    <div class="col s10">
+                        <span class="black-text">
+                            <h4><?= h($post->title) ?></h4>
+                            <hr>
+                            <div class="row">
+                                <div class="col s12 m6 l8">                    
+                                    <p><strong class="subheader"><?= __('Auteur') ?></strong> : <?= $this->Html->link(ucfirst($post->user->login), ['controller' => 'Users', 'action' => 'view', $post->user->id]) ?></p>
+                                    <p><strong class="subheader"><?= __('Catégorie') ?></strong> : <?= $this->Html->link($post->post_category->name, ['controller' => 'PostCategories', 'action' => 'view', $post->post_category->id]) ?></p>
+                                    <p><strong class="subheader"><?= __('Corps de l\'article') ?></strong> : <blockquote class="truncate"><?= $this->Text->autoParagraph(h($post->body)) ?></blockquote></p>
+                                </div>
+                                <div class="col s12 m6 l4">
+                                    <p><strong class="subheader"><?= __('Créé le') ?></strong> : <?= h($post->created->i18nFormat('dd/MM/YYYY à HH:mm:ss')) ?></p>
+                                    <p><strong class="subheader"><?= __('Modifié le') ?></strong> : <?= h($post->modified->i18nFormat('dd/MM/YYYY à HH:mm:ss')) ?></p>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

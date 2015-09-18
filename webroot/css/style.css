@@ -1,3 +1,285 @@
+h1, .h1 {
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+#masthead {
+	position: relative;
+	background: #01579b;
+	min-height: 600px;
+	overflow: hidden;
+	z-index: 900;
+}
+
+@media only screen and (min-width : 992px) {
+	@keyframes animateArrow {
+	    0% {
+	    	background-position: 0px -20px;
+	    }
+	    100% {
+	    	background-position: 0px 20px;
+	    }
+	}
+
+	@keyframes animateTranslatePosition-l-desc {
+	    0% {
+	    	background-position: -1000px 0;
+	        transform: translatex(0px) translatey(0px)
+	    }
+	    100% {
+	    	background-position: 1800px 0;
+	        transform: translatex(0px) translatey(600px);
+	    }
+	}
+
+	@keyframes animateTranslatePosition-l-asc {
+	    0% {
+	    	background-position: -1000px 0;
+	        transform: translatex(0px) translatey(0px)
+	    }
+	    100% {
+	    	background-position: 1800px 0;
+	        transform: translatex(0px) translatey(-600px);
+	    }
+	}
+
+	@keyframes animateTranslatePosition-r-desc {
+	    0% {
+	    	background-position: 2000px 0;
+	        transform: translatex(0px) translatey(0px)
+	    }
+	    100% {
+	    	background-position: -200px 0;
+	        transform: translatex(0px) translatey(600px);
+	    }
+	}
+
+	@keyframes animateTranslatePosition-r-asc {
+	    0% {
+	    	background-position: 2000px 0;
+	        transform: translatex(0px) translatey(0px)
+	    }
+	    100% {
+	    	background-position: -200px 0;
+	        transform: translatex(0px) translatey(-600px);
+	    }
+	}
+
+	#masthead-logo {
+		background: #B6C4DB;
+		border-radius: 128px;
+		width: 256px;
+		height: 256px;
+		position: absolute;
+		margin: auto;
+		padding: 0;
+		top: 20%;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 1100;
+		transition: all 0.5s ease-in-out;
+		-webkit-transition: all 0.5s ease-in-out;
+		-moz-transition: all 0.5s ease-in-out;
+	}
+
+	#masthead-logo img {
+	    position: absolute;
+	    margin: auto;
+	    padding: 0;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+	}
+
+	#header-arrow {
+		display: none;
+		background-position: 0px 0px;
+	}
+
+	#masthead-logo:hover #header-arrow {
+		display: block;
+		border-radius: 128px;
+		animation: animateArrow 10s linear infinite;
+	}
+
+	#masthead-logo:hover #header-responsive {
+		border-radius: 128px;
+		display: none;
+	}
+
+	#logo1{
+		background: url('../img/logo1.png') no-repeat;
+		width: 100%;
+		height: 128px;
+		background-size: 64px 64px;
+		background-position: 0px 0px;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		animation: animateTranslatePosition-l-asc 15s linear infinite;
+		z-index: 1000;
+	}
+
+	#logo2{
+		background: url('../img/logo2.png') no-repeat;
+		width: 100%;
+		height: 128px;
+		background-position: 0px 0px;
+		position: absolute;
+		left: 0;
+		top: 10%;
+		animation: animateTranslatePosition-l-desc 10s ease-out infinite;
+		z-index: 900;
+	}
+
+	#logo3{
+		background: url('../img/logo3.png') no-repeat;
+		width: 100%;
+		height: 128px;
+		background-size: 64px 64px;
+		background-position: 0px 0px;
+		position: absolute;
+		right: 0;
+		bottom: -20%;
+		animation: animateTranslatePosition-r-asc 8s linear infinite;
+		z-index: 1000;
+	}
+
+	#logo4{
+		background: url('../img/logo4.png') no-repeat;
+		width: 100%;
+		height: 128px;
+		background-size: 64px 64px;
+		background-position: 0px 0px;
+		position: absolute;
+		top: -300px;
+		left: 20%;
+		animation: animateTranslatePosition-l-desc 20s linear infinite;
+		z-index: 900;
+	}
+
+	#logo5{
+		background: url('../img/logo5.png') no-repeat;
+		width: 100%;
+		height: 128px;
+		background-size: 80px 80px;
+		background-position: 0px 0px;
+		position: absolute;
+		top: -35%;
+		right: 20%;
+		animation: animateTranslatePosition-r-desc 25s linear infinite;
+		z-index: 900;
+	}
+
+	#logo6{
+		background: url('../img/logo6.png') no-repeat;
+		width: 100%;
+		height: 128px;
+		background-position: 0px 0px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		animation: animateTranslatePosition-r-desc 20s ease-in-out infinite;
+		z-index: 900;
+	}
+
+	#logo7{
+		background: url('../img/logo7.png') no-repeat;
+		width: 100%;
+		height: 128px;
+		background-size: 80px 80px;
+		background-position: 0px 0px;
+		position: absolute;
+		bottom: -35%;
+		left: 20%;
+		animation: animateTranslatePosition-l-asc 15s ease-in infinite;
+		z-index: 900;
+	}
+
+	#logo8{
+		background: url('../img/logo8.png') no-repeat;
+		width: 100%;
+		height: 128px;
+		background-position: 0px 0px;
+		position: absolute;
+		top: -35%;
+		left: 0;
+		animation: animateTranslatePosition-r-desc 10s linear infinite;
+		z-index: 900;
+	}
+
+	#logo9{
+		background: url('../img/logo9.png') no-repeat;
+		width: 100%;
+		height: 128px;
+		background-size: 80px 80px;
+		background-position: 0px 0px;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		animation: animateTranslatePosition-l-asc 20s ease-out infinite;
+		z-index: 900;
+	}
+
+	#logo10{
+		background: url('../img/logo10.png') no-repeat;
+		width: 100%;
+		height: 128px;
+		background-size: 80px 80px;
+		background-position: 0px 0px;
+		position: absolute;
+		bottom: -35%;
+		left: 20%;
+		animation: animateTranslatePosition-l-asc 15s ease-in infinite;
+		z-index: 900;
+	}
+}
+
+@media only screen and (max-width : 992px) {
+	#masthead {
+	    height: auto;
+	    overflow: visible;
+	    position: static;
+	}
+}
+
+nav {
+	position: relative;
+	display: block;
+	z-index: 2000;
+	background-color: transparent;
+	box-shadow: none;
+}
+
+nav #nav-menu-laptop {
+	padding: 0;
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+nav #nav-menu-laptop ul {
+	background-color: rgba(0, 0, 0, 0.65);
+	width: 700px;
+	margin: auto;
+}
+
+nav #nav-menu-laptop ul li {
+	float: none;
+	display: inline-block;
+}
+
+nav ul li:hover a {
+    color: #0277bd;
+}
+
+nav .brand-logo {
+    position: relative;
+    height: 150px;
+    margin: auto;
+}
+
 p{
 	text-align: justify;
 }
@@ -7,11 +289,14 @@ p{
 }
 
 #nav-logo{
-	width: 25%;
+	width: 10%;
+	vertical-align: middle;
+	float: left;
 }
 
-nav ul li:hover a {
-    color: #03a9f4;
+#header-title {
+	display: block;
+	margin: auto;
 }
 
 #page-content-container{

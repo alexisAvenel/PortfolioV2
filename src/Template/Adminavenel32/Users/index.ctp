@@ -7,14 +7,14 @@
 
     <div class="row">
         <div class="col s12">
-            <table cellpadding="0" cellspacing="0">
+            <table cellpadding="0" cellspacing="0" class="responsive-table striped">
                 <thead>
                     <tr>
-                        <th><?= $this->Paginator->sort('id') ?></th>
-                        <th><?= $this->Paginator->sort('firstname') ?></th>
-                        <th><?= $this->Paginator->sort('lastname') ?></th>
-                        <th><?= $this->Paginator->sort('login') ?></th>
-                        <th><?= $this->Paginator->sort('email') ?></th>
+                        <th><?= $this->Paginator->sort('Id') ?></th>
+                        <th><?= $this->Paginator->sort('Prénom') ?></th>
+                        <th><?= $this->Paginator->sort('Nom') ?></th>
+                        <th><?= $this->Paginator->sort('Login') ?></th>
+                        <th><?= $this->Paginator->sort('Email') ?></th>
                         <th class="actions"><?= __('Actions') ?></th>
                     </tr>
                 </thead>
@@ -40,9 +40,9 @@
         <div class="col s3 offset-s4">
             <div class="paginator">
                 <ul class="pagination">
-                    <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                    <?= $this->Paginator->prev('< ' . __('Prev')) ?>
                     <?= $this->Paginator->numbers() ?>
-                    <?= $this->Paginator->next(__('next') . ' >') ?>
+                    <?= $this->Paginator->next(__('Next') . ' >') ?>
                 </ul>
             </div>
         </div>

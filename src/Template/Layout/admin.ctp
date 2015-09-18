@@ -14,41 +14,60 @@
     <?= $this->fetch('css') ?>
     
 </head>
-<body>
-    <nav class="light-blue" role="navigation">
-        <div class="nav-wrapper">
-            <a id="logo-container" href="#" class="brand-logo hide-on-med-and-down">
-                <?php if(!empty($this->request->session()->read('Auth.User.avatar')) && $this->request->session()->read('Auth.User.avatar') != 'null'): ?>
-                <img src="<?= BASE_URL.'img/'.$this->request->session()->read('Auth.User.avatar'); ?>" class="z-depth-3" height="64" align="top">
-                <?php endif; ?>
-                Connecté en tant que <?= (!empty($this->request->session()->read('Auth.User.firstname')) && !empty($this->request->session()->read('Auth.User.lastname'))) ? $this->request->session()->read('Auth.User.firstname').' '.$this->request->session()->read('Auth.User.lastname') : $this->request->session()->read('Auth.User.login') ?>
-            </a>
-            <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'home']); ?>"><i class="material-icons">home</i></a></li>        
-                <li><a target="_blank" href="<?php echo $this->Url->build('/', true); ?>" title="Nouvelle fenêtre">Aller vers le site</a></li>
-                <li><a href="<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'logout']); ?>" class="red lightent-4">Déconnexion</a></li>
-            </ul>
-        </div>
-        <ul id="slide-out" class="side-nav">
-            <li><a href="<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'index']); ?>">Gestion des utilisateurs</a></li>
-            <li><a href="<?php echo $this->Url->build(['controller' => 'Posts', 'action' => 'index']); ?>">Gestion des articles</a></li>
-        </ul>
-    </nav>
-    <div id="container">
-        <div class="row">        
-            <header class="col s8 offset-s2">
-                
-            </header>
-            <div class="col s12" id="page-content-container">
-                <?= $this->Flash->render() ?>
-                <?= $this->Flash->render('auth'); ?>
-                <?= $this->fetch('content') ?>
+<body class="blue-grey lighten-4">
+
+    <header>
+        <nav class="top-nav blue-grey darken-4">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="mdi-navigation-menu"></i></a>
+                    <a class="page-title"><?= $title_for_layout ?></a>
+                </div>
             </div>
-            <footer>
-            </footer>
-        </div>
-    </div>
+        </nav>
+        <ul id="nav-mobile" class="side-nav fixed blue-grey darken-4" style="width: 240px;">
+            <li class="logo">
+                <a id="logo-container" href="<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'edit', $this->request->session()->read('Auth.User.id')]); ?>" class="brand-logo">
+                    <div class="bold">
+                    <?= (!empty($this->request->session()->read('Auth.User.firstname')) && !empty($this->request->session()->read('Auth.User.lastname'))) ? $this->request->session()->read('Auth.User.firstname').' '.$this->request->session()->read('Auth.User.lastname') : $this->request->session()->read('Auth.User.login') ?>
+                    </div>
+                    <?php if(!empty($this->request->session()->read('Auth.User.avatar')) && $this->request->session()->read('Auth.User.avatar') != 'null'): ?>
+                        <img src="<?= BASE_URL.'img/'.$this->request->session()->read('Auth.User.avatar'); ?>" class="z-depth-3 filter circle responsive-img" id="front-page-logo">
+                    <?php endif; ?>
+                </a>
+            </li>
+            <li class="bold"><a href="<?php echo $this->Url->build('/'.ADMIN_PREFIX.'/home'); ?>" class="waves-effect waves-teal">Home</a></li>
+            <li class="bold">
+                <a href="<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'index']); ?>" class="waves-effect waves-teal">Gestion des utilisateurs</a>
+            </li>
+            <li class="bold">
+                <a href="<?php echo $this->Url->build(['controller' => 'Posts', 'action' => 'index']); ?>" class="waves-effect waves-teal">Gestion des articles</a>
+            </li>
+            <li class="bold website">
+                <a href="<?= BASE_URL ?>" class="waves-effect waves-teal" target="_blank">Aller vers le site</a>
+            </li>
+            <li class="bold disconnect">
+                <a href="<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'logout']); ?>" class="waves-effect waves-teal">Déconnexion</a>
+            </li>
+        </ul>
+    </header>
+
+    <main>
+        <div id="container">
+            <div class="row">
+                <div class="col s12" id="page-content-container">
+                    <?= $this->Flash->render() ?>
+                    <?= $this->Flash->render('auth'); ?>
+                    <?= $this->fetch('content') ?>
+                </div>
+
+            </div>
+        </div>        
+    </main>
+
+    <footer>
+
+    </footer>
 
     <!-- JS  -->
     <?= $this->fetch('script') ?>
@@ -58,11 +77,7 @@
     (function($){
         $(function(){
 
-            $('.button-collapse').sideNav({
-                menuWidth: 300, // Default is 240
-                edge: 'left', // Choose the horizontal origin
-                closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-            });
+            $('.button-collapse').sideNav({edge: 'left'});
 
             $('select').material_select();
 

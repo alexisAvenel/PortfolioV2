@@ -54,7 +54,7 @@ Router::scope('/', function ($routes) {
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
-    //$routes->connect('/adminavenel32', ['controller' => 'users', 'action' => 'login', 'prefix' => 'admin']);
+    //$routes->connect('/adminavenel32', ['controller' => 'Users', 'action' => 'login', 'prefix' => 'adminavenel32']);
     //$routes->connect('/adminavenel32/:controller/:action/*', ['controller' => 'users', 'action' => 'login']);
 
     /**
@@ -76,23 +76,14 @@ Router::scope('/', function ($routes) {
     $routes->fallbacks();
 });
 
-Router::prefix('adminavenel32', function($routes) {
+Router::prefix(ADMIN_PREFIX, function($routes) {
     // All routes here will be prefixed with ‘/admin‘
     // And have the prefix => admin route element added.
-    $routes->connect(
-        '/',
-        ['controller' => 'Users', 'action' => 'home']
-    );
-    // $routes->connect(
-    //     '/:controller',
-    //     ['action' => 'index'],
-    //     ['routeClass' => 'InflectedRoute']
-    // );
-    $routes->connect(
-        '/:controller/:action/*',
-        [],
-        ['routeClass' => 'InflectedRoute']
-    );
+    $routes->connect('/', ['controller' => 'Users', 'action' => 'login']);
+
+    $routes->connect('/:controller/:action/*', [], ['routeClass' => 'InflectedRoute']);
+
+    $routes->connect('/home', ['controller' => 'Users', 'action' => 'home']);
 });
 
 /**
