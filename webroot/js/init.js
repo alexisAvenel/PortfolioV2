@@ -6,7 +6,10 @@
 
 	$(document).ready(function(){
 		$('#masthead').css('height', h_client);
-		$('.scrollspy').scrollSpy();
+	    $('.scrollspy').scrollSpy({
+	        scrollParent: window,
+	        offsetTop: 0
+	    });
 	});
 
     $('.button-collapse').sideNav();

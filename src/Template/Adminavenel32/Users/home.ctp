@@ -1,6 +1,6 @@
 <div class="container">
     <div class="section">
-		<h1>Administration</h1>
+		<h1>Dashboard Administration</h1>
 	</div>
 </div>
 <div class="row admin_dash">

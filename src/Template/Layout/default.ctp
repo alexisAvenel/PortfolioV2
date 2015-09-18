@@ -55,15 +55,15 @@
             </div>
         </nav>
         <div id="masthead-logo">
-            <a href="#"><?= $this->Html->image("responsive-design-image.png", ["id" => "header-responsive", "title" => "Responsive Design", "alt" => "Logo Responsive Design"]); ?></a>
-            <a href="#"><?= $this->Html->image("arrow.png", ["id" => "header-arrow", "title" => "Go down", "alt" => "Logo Arrow"]); ?></a>
+            <?= $this->Html->image("responsive-design-image.png", ["id" => "header-responsive", "title" => "Responsive Design", "alt" => "Logo Responsive Design"]); ?>
+            <a href="#page-content-container" class=""><?= $this->Html->image("arrow.png", ["id" => "header-arrow", "title" => "Go down", "alt" => "Logo Arrow"]); ?></a>
         </div>
     </header>
 
     <main>
         <div id="container">
             <div class="row">
-                <div class="col s12" id="page-content-container">
+                <div class="col s12 scrollspy" id="page-content-container">
                     <?= $this->Flash->render() ?>
                     <?= $this->Flash->render('auth'); ?>
                     <?= $this->fetch('content') ?>
@@ -111,6 +111,7 @@
     <?= $this->fetch('script') ?>
     <?= $this->Html->script('//code.jquery.com/jquery-1.11.3.min.js'); ?>
     <?= $this->Html->script('materialize.min'); ?>
+    <?= $this->Html->script('scrollSpy'); ?>
     <?= $this->Html->script('init'); ?>
 </body>
 </html>

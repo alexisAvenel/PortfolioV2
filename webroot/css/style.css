@@ -13,10 +13,13 @@ h1, .h1 {
 @media only screen and (min-width : 992px) {
 	@keyframes animateArrow {
 	    0% {
-	    	background-position: 0px -20px;
+	    	top: 45%;
+	    }
+	    50% {
+	    	top: 70%;
 	    }
 	    100% {
-	    	background-position: 0px 20px;
+			top: 45%;
 	    }
 	}
 
@@ -93,19 +96,9 @@ h1, .h1 {
 	}
 
 	#header-arrow {
-		display: none;
+		width: 30%;
+		animation: animateArrow 2s linear infinite;
 		background-position: 0px 0px;
-	}
-
-	#masthead-logo:hover #header-arrow {
-		display: block;
-		border-radius: 128px;
-		animation: animateArrow 10s linear infinite;
-	}
-
-	#masthead-logo:hover #header-responsive {
-		border-radius: 128px;
-		display: none;
 	}
 
 	#logo1{
@@ -301,4 +294,8 @@ p{
 
 #page-content-container{
 	min-height: 600px;
+}
+
+.scrollspy {
+    position: relative;
 }
