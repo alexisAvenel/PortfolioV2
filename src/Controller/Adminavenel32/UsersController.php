@@ -78,6 +78,7 @@ class UsersController extends AppController
                 $user = $this->Auth->identify();
                 if ($user) {
                     $this->Auth->setUser($user);
+                    $this->Flash->success(__("Connexion réussie."));
                     return $this->redirect($this->Auth->redirectUrl());
                 } else {
                     $this->Flash->error(
@@ -172,6 +173,7 @@ class UsersController extends AppController
         $title = "Alexis Avenel - Modifier un utilisateur";
         $this->set('page', $page);
         $this->set('title_for_layout', $title);
+        $session = $this->request->session();
 
         $user = $this->Users->get($id, [
             'contain' => []
@@ -195,9 +197,10 @@ class UsersController extends AppController
             endif;
 
             $user = $this->Users->patchEntity($user, $d);
-            if ($this->Users->save($user)) {
+            if ($this->Users->save($user, ['checkRules' => false])) {
                 move_uploaded_file($d['file']['tmp_name'], $dir.DS.$filename.$ext);
                 $this->Flash->success(__('Les modifications ont bien été faites.'));
+                $session->write('Auth.User', $user);
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__("Impossible de modifier l'utilisateur."));

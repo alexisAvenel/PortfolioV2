@@ -12,6 +12,9 @@
     <?= $this->Html->css('materialize.min.css', ['media'=>'screen,projection']) ?>
     <?= $this->Html->css('admin-style.css') ?>
     <?= $this->fetch('css') ?>
+
+    <!-- JS -->
+    <?= $this->Html->script('//code.jquery.com/jquery-1.11.3.min.js'); ?>
     
 </head>
 <body class="blue-grey lighten-4">
@@ -56,8 +59,6 @@
         <div id="container">
             <div class="row">
                 <div class="col s12" id="page-content-container">
-                    <?= $this->Flash->render() ?>
-                    <?= $this->Flash->render('auth'); ?>
                     <?= $this->fetch('content') ?>
                 </div>
 
@@ -71,8 +72,9 @@
 
     <!-- JS  -->
     <?= $this->fetch('script') ?>
-    <?= $this->Html->script('//code.jquery.com/jquery-1.11.3.min.js'); ?>
     <?= $this->Html->script('materialize.min'); ?>
+    <?= $this->Flash->render() ?>
+    <?= $this->Flash->render('auth'); ?>
     <script type="text/javascript">
     (function($){
         $(function(){

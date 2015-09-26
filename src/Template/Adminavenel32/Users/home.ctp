@@ -19,7 +19,7 @@
 					<div class="collection">
 						<?php foreach($last_users as $user): ?>
 							<a href="<?php echo $this->Url->build(['controller' => 'users', 'action' => 'view', $user->id]); ?>" class="collection-item">
-								<?php echo ucfirst($user->firstname)." ".ucfirst($user->lastname)." | le ".$user->created->i18nFormat('dd-MM-YYYY à HH:mm:ss'); ?>
+								<?php echo ucfirst($user->firstname)." ".ucfirst($user->lastname)." | le ".$user->created->i18nFormat('dd/MM/YYYY à HH:mm:ss'); ?>
 							</a>
 						<?php endforeach; ?>
 					</div>
@@ -43,7 +43,7 @@
 					<div class="collection">
 						<?php foreach($last_posts as $post): ?>
 							<a href="<?php echo $this->Url->build(['controller' => 'posts', 'action' => 'view', $post->id]); ?>" class="collection-item">
-								<?php echo "<span class='truncate inline'>".ucfirst($post->title)."</span> (".ucfirst($post->post_category->name).") posté par ".ucfirst($post->user->login)." | le ".$post->created->i18nFormat('dd-MM-YYYY à HH:mm:ss'); ?>
+								<?php echo "<span class='truncate inline'>".ucfirst($post->title)."</span> (".ucfirst($post->post_category->name).") posté par ".ucfirst($post->user->login)." | le ".$post->created->i18nFormat('dd/MM/YYYY à HH:mm:ss'); ?>
 							</a>
 						<?php endforeach; ?>
 					</div>
